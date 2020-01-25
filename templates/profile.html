@@ -8,7 +8,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{ url_for('static', filename='bs/css/united.min.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 	</head>
 	<body>
 
@@ -39,9 +39,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="./timeline.html">Timeline</a></li>
-						<li class="active"><a href="./profile.html">My Profile</a></li>
-						<li class=""><a href="">Logout</a></li>
+						<li><a href="{{ url_for('timeline') }}">Timeline</a></li>
+						<li class="active"><a href="{{ url_for('profile') }}">My Profile</a></li>
+						<li class=""><a href="{{ url_for('logout') }}">Logout</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
@@ -57,22 +57,22 @@
 						<div class="panel-body">
 							<div class="row pad">
 								<div class="col-lg-12">
-									<img src="{{ url_for('static', filename='imgs/anonymous.png')}}" class="img-responsive img-circle center-block" alt="Image" style="height: 220px;" />
+									<img src="{{ current_user.image }}" class="img-responsive img-circle center-block" alt="Image" style="height: 220px;" />
 								</div>
 							</div>
 						</div>
 						<ul class="list-group">
 							<li class="list-group-item">
 								<i class="glyphicon glyphicon-user"></i> NAME: 
-								<strong class="pull-right">Miranda Cavendish</strong>
+								<strong class="pull-right">{{ current_user.name }}</strong>
 							</li>
 							<li class="list-group-item">
 								<i class="glyphicon glyphicon-th"></i> Handle: 
-								<strong class="pull-right"><em>@mirandaCAV</em></strong>
+								<strong class="pull-right"><em>@{{ current_user.username }}</em></strong>
 							</li>
 							<li class="list-group-item">
 								<i class="glyphicon glyphicon-calendar"></i> MEMBER SINCE: 
-								<strong class="pull-right">February 4, 2017</strong>
+								<strong class="pull-right">25th January 2020</strong>
 							</li>
 							<li class="list-group-item">
 								<i class="glyphicon glyphicon-th-list"></i> FOLLOWERS COUNT: 
@@ -104,7 +104,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}" class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -123,7 +123,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}"  class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -142,7 +142,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}"  class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -163,7 +163,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}"  class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -185,7 +185,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}" class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -207,7 +207,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}" class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -229,7 +229,7 @@
 											<div class="col-lg-12">
 												<div class="row pad">
 													<div class="col-lg-2">
-														<img src="{{ url_for('static', filename='imgs/anonymous.png')}}"  class="img-circle" style="width: 60px; height: 60px;" />
+														<img src="{{ url_for('static', filename='imgs/anonymous.png') }}" class="img-circle" style="width: 60px; height: 60px;" />
 													</div>
 													<div class="col-lg-10">
 														<div>
@@ -313,6 +313,6 @@
 		<!-- jQuery -->
 		<script src="{{ url_for('static', filename='bs/js/jquery.min.js') }}"></script>
 		<!-- Bootstrap JavaScript -->
-		<script src="{{ url_for ('static', filename='bs/js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='bs/js/bootstrap.min.js') }}"></script>
 	</body>
 </html>
